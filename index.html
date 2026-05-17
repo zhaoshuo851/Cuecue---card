@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CueCue - Interactive card websites for creators</title>
+    <meta
+      name="description"
+      content="CueCue helps creators and small brands build lively websites from interactive cards, templates, forms, RSVP blocks, product drops, and link hubs."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='28' height='28' x='4' y='4' rx='8' fill='%23c9ff38'/%3E%3Crect width='28' height='28' x='32' y='4' rx='8' fill='%2355d9ff'/%3E%3Crect width='28' height='28' x='4' y='32' rx='8' fill='%23ff6fb1'/%3E%3Crect width='28' height='28' x='32' y='32' rx='8' fill='%23ffd159'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar" data-reveal>
+        <a class="brand" href="#top" aria-label="CueCue home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span>CueCue</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#toolkit">Toolkit</a>
+          <a href="#cards">Cards</a>
+          <a href="#flow">Flow</a>
+          <a href="#templates">Templates</a>
+        </nav>
+        <a class="nav-cta magnetic" href="#start">
+          <span>Start building</span>
+          <span aria-hidden="true">+</span>
+        </a>
+      </header>
+
+      <main id="top">
+        <section class="hero section-panel" aria-labelledby="hero-title">
+          <div class="hero-grid">
+            <div class="hero-copy" data-reveal>
+              <p class="eyebrow">
+                Interactive card websites for creators and small brands
+              </p>
+              <h1 id="hero-title">CueCue turns cards into websites.</h1>
+              <p class="hero-lede">
+                Skip heavy builders. Start with a stack of expressive cards,
+                remix each block, then publish a link hub, RSVP page, product
+                drop, portfolio, menu, or mini site in minutes.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-dark magnetic" href="#start">
+                  <span>Build a page</span>
+                  <span aria-hidden="true">-></span>
+                </a>
+                <a class="button button-light magnetic" href="#toolkit">
+                  Explore cards
+                </a>
+              </div>
+              <div class="hero-metrics" aria-label="CueCue highlights">
+                <span>Template-first</span>
+                <span>No design degree</span>
+                <span>Works on every link</span>
+              </div>
+            </div>
+
+            <div class="hero-stage" aria-label="Animated CueCue page builder preview">
+              <div class="ambient-grid" aria-hidden="true"></div>
+              <div class="preview-window layer" data-depth="0.025" data-reveal>
+                <div class="window-toolbar">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <strong>cuecue.im/mika</strong>
+                </div>
+                <div class="phone-preview">
+                  <div class="creator-cover"></div>
+                  <div class="creator-avatar"></div>
+                  <h2>Mika Studio</h2>
+                  <p>Illustration, pop-ups, workshops</p>
+                  <div class="link-row active">
+                    <span>Book a workshop</span>
+                    <b>RSVP</b>
+                  </div>
+                  <div class="link-row">
+                    <span>Shop mini prints</span>
+                    <b>Drop</b>
+                  </div>
+                  <div class="link-row">
+                    <span>Follow the process</span>
+                    <b>Feed</b>
+                  </div>
+                </div>
+              </div>
+
+              <article class="floating-card card-yellow layer" data-depth="0.065">
+                <span class="card-kicker">RSVP card</span>
+                <strong>Friday studio night</strong>
+                <div class="mini-guests">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <b>42 going</b>
+                </div>
+              </article>
+
+              <article class="floating-card card-pink layer" data-depth="0.095">
+                <span class="card-kicker">Product drop</span>
+                <strong>Summer zine pack</strong>
+                <div class="price-strip">
+                  <span>$24</span>
+                  <button type="button">Save</button>
+                </div>
+              </article>
+
+              <article class="floating-card card-blue layer" data-depth="0.08">
+                <span class="card-kicker">Link hub</span>
+                <strong>Portfolio, shop, bookings</strong>
+                <div class="line-stack" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </article>
+
+              <div class="tool-pill pill-one layer" data-depth="0.11">Forms</div>
+              <div class="tool-pill pill-two layer" data-depth="0.075">Bookings</div>
+              <div class="tool-pill pill-three layer" data-depth="0.12">Menus</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="marquee-band" aria-label="Popular CueCue page types">
+          <div class="marquee-track">
+            <span>Digital business card</span>
+            <span>Portfolio hub</span>
+            <span>RSVP page</span>
+            <span>Product launch</span>
+            <span>Restaurant menu</span>
+            <span>Workshop signup</span>
+            <span>Creator links</span>
+            <span>Waitlist</span>
+            <span>Digital business card</span>
+            <span>Portfolio hub</span>
+            <span>RSVP page</span>
+            <span>Product launch</span>
+          </div>
+        </section>
+
+        <section class="toolkit" id="toolkit" aria-labelledby="toolkit-title">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Endless combinations</p>
+            <h2 id="toolkit-title">A playful card toolkit, not another blank canvas.</h2>
+            <p>
+              CueCue gives creators ready-made interactive blocks that can be
+              snapped together like a visual kit. Every block carries content,
+              action, and personality.
+            </p>
+          </div>
+
+          <div class="toolkit-board" data-reveal>
+            <div class="kit-panel kit-main">
+              <div class="kit-header">
+                <span>Page stack</span>
+                <strong>6 cards live</strong>
+              </div>
+              <div class="stack-list">
+                <button class="stack-item is-active" type="button" data-stack="creator">
+                  <span class="stack-dot dot-green"></span>
+                  Creator profile
+                </button>
+                <button class="stack-item" type="button" data-stack="event">
+                  <span class="stack-dot dot-yellow"></span>
+                  RSVP event
+                </button>
+                <button class="stack-item" type="button" data-stack="shop">
+                  <span class="stack-dot dot-pink"></span>
+                  Product drop
+                </button>
+                <button class="stack-item" type="button" data-stack="menu">
+                  <span class="stack-dot dot-blue"></span>
+                  Smart menu
+                </button>
+              </div>
+            </div>
+
+            <div class="kit-panel kit-preview" id="stack-preview">
+              <span class="preview-tag">Creator stack</span>
+              <h3>Profile, links, bookings, and updates in one polished page.</h3>
+              <div class="preview-composition">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="kit-panel kit-mini kit-lime">
+              <span>Collect</span>
+              <strong>Emails, RSVPs, leads</strong>
+            </div>
+            <div class="kit-panel kit-mini kit-ink">
+              <span>Style</span>
+              <strong>Fonts, colors, cards</strong>
+            </div>
+            <div class="kit-panel kit-mini kit-coral">
+              <span>Share</span>
+              <strong>One link, everywhere</strong>
+            </div>
+            <div class="kit-panel kit-tall">
+              <div class="texture-card">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <h3>Design energy without design chaos.</h3>
+              <p>
+                Templates keep the page polished. Card-level controls keep it
+                personal.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cards-section section-panel" id="cards" aria-labelledby="cards-title">
+          <div class="section-heading compact" data-reveal>
+            <p class="eyebrow">Interactive cards</p>
+            <h2 id="cards-title">Every card can do more than point somewhere.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card feature-large" data-reveal>
+              <span class="feature-index">01</span>
+              <h3>Turn attention into action</h3>
+              <p>
+                Add signups, RSVP buttons, downloads, payments, booking links,
+                and contact cards directly inside the page flow.
+              </p>
+              <div class="action-preview" aria-hidden="true">
+                <span>Book a table</span>
+                <button type="button">Reserve</button>
+              </div>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-index">02</span>
+              <h3>Make quick pages feel designed</h3>
+              <p>
+                Use energetic layouts, layered cards, soft motion, and bold
+                templates instead of a plain vertical link list.
+              </p>
+            </article>
+            <article class="feature-card" data-reveal>
+              <span class="feature-index">03</span>
+              <h3>Launch tiny campaigns fast</h3>
+              <p>
+                Spin up a page for a drop, event, menu, portfolio update, or
+                waitlist without opening a full website builder.
+              </p>
+            </article>
+            <article class="feature-card feature-dark" data-reveal>
+              <span class="feature-index">04</span>
+              <h3>Built for the link in your bio</h3>
+              <p>
+                Mobile-first pages that still look crafted on desktop, tablets,
+                QR codes, and social profiles.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="flow" id="flow" aria-labelledby="flow-title">
+          <div class="flow-copy" data-reveal>
+            <p class="eyebrow">From idea to live page</p>
+            <h2 id="flow-title">Three moves. One polished presence.</h2>
+          </div>
+
+          <div class="flow-steps" data-reveal>
+            <article class="flow-card">
+              <span>01</span>
+              <h3>Pick a starting stack</h3>
+              <p>Choose a creator, event, shop, menu, or digital card template.</p>
+            </article>
+            <article class="flow-card">
+              <span>02</span>
+              <h3>Remix the cards</h3>
+              <p>Swap blocks, edit content, tune color, and add interactive actions.</p>
+            </article>
+            <article class="flow-card">
+              <span>03</span>
+              <h3>Publish and share</h3>
+              <p>Drop the link into social bios, QR codes, email, or campaign posts.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="use-cases section-panel" aria-labelledby="use-cases-title">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Made for expressive businesses</p>
+            <h2 id="use-cases-title">Creator polish for people who do not want to design from zero.</h2>
+          </div>
+          <div class="use-case-grid">
+            <article class="persona-card persona-one" data-reveal>
+              <span>Designers</span>
+              <h3>Portfolio links with a campaign feel</h3>
+              <p>Show projects, sell assets, capture commissions, and announce drops.</p>
+            </article>
+            <article class="persona-card persona-two" data-reveal>
+              <span>Local shops</span>
+              <h3>Menus, offers, and lead capture</h3>
+              <p>Publish a fast page that looks more crafted than a marketplace profile.</p>
+            </article>
+            <article class="persona-card persona-three" data-reveal>
+              <span>Event hosts</span>
+              <h3>RSVP pages that feel alive</h3>
+              <p>Invite people, collect details, and keep the vibe clear before they arrive.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="templates" id="templates" aria-labelledby="templates-title">
+          <div class="section-heading compact" data-reveal>
+            <p class="eyebrow">Template wall</p>
+            <h2 id="templates-title">Start with the page type. Make it yours.</h2>
+          </div>
+          <div class="template-wall" data-reveal>
+            <article class="template-card template-a">
+              <span>01</span>
+              <h3>Creator bio</h3>
+              <div></div>
+            </article>
+            <article class="template-card template-b">
+              <span>02</span>
+              <h3>Event RSVP</h3>
+              <div></div>
+            </article>
+            <article class="template-card template-c">
+              <span>03</span>
+              <h3>Product drop</h3>
+              <div></div>
+            </article>
+            <article class="template-card template-d">
+              <span>04</span>
+              <h3>Restaurant menu</h3>
+              <div></div>
+            </article>
+            <article class="template-card template-e">
+              <span>05</span>
+              <h3>Digital card</h3>
+              <div></div>
+            </article>
+            <article class="template-card template-f">
+              <span>06</span>
+              <h3>Waitlist</h3>
+              <div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="comparison section-panel" aria-labelledby="comparison-title">
+          <div class="comparison-copy" data-reveal>
+            <p class="eyebrow">Beyond link lists</p>
+            <h2 id="comparison-title">The speed of a bio link. The feel of a mini website.</h2>
+          </div>
+          <div class="comparison-grid" data-reveal>
+            <div class="compare-card muted">
+              <span>Basic link pages</span>
+              <p>Mostly lists of buttons, limited campaign storytelling, little room for interaction.</p>
+            </div>
+            <div class="compare-card loud">
+              <span>CueCue</span>
+              <p>Layered cards, useful actions, templates, and a page that can change with every launch.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta" id="start" aria-labelledby="start-title">
+          <div class="cta-scene" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="cta-copy" data-reveal>
+            <p class="eyebrow">Ready when the idea is</p>
+            <h2 id="start-title">Launch a card-built website before the campaign goes cold.</h2>
+            <p>
+              CueCue is for the creator, founder, designer, seller, host, and
+              team that needs a good-looking page today.
+            </p>
+            <a class="button button-dark magnetic" href="https://cuecue.im/#start">
+              <span>Try CueCue</span>
+              <span aria-hidden="true">-></span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="brand" href="#top" aria-label="CueCue home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span>CueCue</span>
+        </a>
+        <div class="footer-links">
+          <a href="#toolkit">Toolkit</a>
+          <a href="#cards">Cards</a>
+          <a href="#templates">Templates</a>
+          <a href="https://cuecue.im/">Current site</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
