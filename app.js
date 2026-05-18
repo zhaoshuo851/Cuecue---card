@@ -79,35 +79,23 @@ stackButtons.forEach((button) => {
 if (!prefersReducedMotion) {
   const heroStage = document.querySelector(".hero-stage");
   const layers = document.querySelectorAll(".layer");
-  let heroFrame = 0;
-  let pointerX = 0;
-  let pointerY = 0;
 
   heroStage?.addEventListener("pointermove", (event) => {
     const rect = heroStage.getBoundingClientRect();
-    pointerX = event.clientX - rect.left - rect.width / 2;
-    pointerY = event.clientY - rect.top - rect.height / 2;
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
 
-    if (heroFrame) {
-      return;
-    }
-
-    heroFrame = requestAnimationFrame(() => {
-      layers.forEach((layer) => {
-        const depth = Number(layer.dataset.depth || 0.04);
-        const moveX = pointerX * depth;
-        const moveY = pointerY * depth;
-        layer.style.translate = `${moveX}px ${moveY}px`;
-      });
-      heroFrame = 0;
+    layers.forEach((layer) => {
+      const depth = Number(layer.dataset.depth || 0.04);
+      const moveX = x * depth;
+      const moveY = y * depth;
+      layer.style.setProperty("--move-x", `${moveX}px`);
+      layer.style.setProperty("--move-y", `${moveY}px`);
+      layer.style.translate = `${moveX}px ${moveY}px`;
     });
   });
 
   heroStage?.addEventListener("pointerleave", () => {
-    if (heroFrame) {
-      cancelAnimationFrame(heroFrame);
-      heroFrame = 0;
-    }
     layers.forEach((layer) => {
       layer.style.translate = "0 0";
     });

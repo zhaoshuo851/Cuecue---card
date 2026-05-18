@@ -8,7 +8,6 @@ This is a static front-end prototype for the CueCue homepage refresh.
 - `styles.css` - visual system, responsive layout, animations, and component styling
 - `app.js` - scroll reveal, card-stack switching, pointer parallax, and button motion
 - `scripts/qa-check.cjs` - optional Playwright screenshot and overflow check
-- `assets/template-card-sheet.jpg` - generated template-wall artwork, compressed for page performance
 - `qa-screenshots/` - generated desktop, tablet, and mobile review screenshots
 
 ## Direction
@@ -26,9 +25,3 @@ python3 -m http.server 4173
 ```
 
 Then open `http://127.0.0.1:4173/`.
-
-To run the QA script against a local file instead of the server, set `QA_URL`:
-
-```bash
-QA_URL=file:///absolute/path/to/index.html node scripts/qa-check.cjs
-```
