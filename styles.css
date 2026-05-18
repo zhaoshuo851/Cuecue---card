@@ -101,6 +101,7 @@ button {
   background: rgba(255, 250, 240, 0.8);
   box-shadow: 0 18px 60px rgba(23, 23, 23, 0.08);
   backdrop-filter: blur(18px);
+  transform: translateZ(0);
 }
 
 .brand {
@@ -256,10 +257,11 @@ button {
   gap: 30px;
   align-items: center;
   min-height: 620px;
+  contain: layout paint;
 }
 
 .hero-copy {
-  max-width: 660px;
+  max-width: 620px;
 }
 
 .eyebrow {
@@ -291,9 +293,9 @@ p {
 }
 
 h1 {
-  max-width: 720px;
+  max-width: 650px;
   margin-bottom: 24px;
-  font-size: 88px;
+  font-size: 92px;
   line-height: 0.94;
   font-weight: 900;
   letter-spacing: 0;
@@ -316,7 +318,7 @@ h3 {
 }
 
 .hero-lede {
-  max-width: 590px;
+  max-width: 500px;
   margin-bottom: 28px;
   color: rgba(23, 23, 23, 0.72);
   font-size: 20px;
@@ -351,6 +353,7 @@ h3 {
   position: relative;
   min-height: 610px;
   perspective: 1200px;
+  contain: layout paint;
 }
 
 .ambient-grid {
@@ -379,6 +382,7 @@ h3 {
   transform: rotate(-3deg);
   transform-style: preserve-3d;
   animation: float-main 6.6s ease-in-out infinite;
+  will-change: transform, translate;
 }
 
 .window-toolbar {
@@ -708,6 +712,36 @@ h3 {
   margin: 0 auto 42px;
 }
 
+.toolkit-heading {
+  grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.72fr);
+  grid-template-areas:
+    "eyebrow copy"
+    "title copy";
+  align-items: end;
+  margin-bottom: 50px;
+}
+
+.toolkit-heading .eyebrow {
+  grid-area: eyebrow;
+}
+
+.toolkit-heading h2 {
+  grid-area: title;
+  max-width: 700px;
+  margin-bottom: 0;
+}
+
+.toolkit-heading p:not(.eyebrow) {
+  grid-area: copy;
+  max-width: 460px;
+  margin: 0 0 10px auto;
+  padding: 22px;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 8px 8px 0 rgba(23, 23, 23, 0.05);
+}
+
 .section-heading.compact {
   grid-template-columns: 1fr;
   max-width: 800px;
@@ -917,19 +951,44 @@ h3 {
 
 .kit-tall {
   grid-row: span 2;
-  padding: 20px;
-  background: #fff;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(201, 255, 56, 0.2), rgba(85, 217, 255, 0.18)),
+    #fff;
 }
 
 .texture-card {
   position: relative;
-  height: 194px;
-  margin-bottom: 24px;
+  height: 100%;
+  min-height: 356px;
+  margin-bottom: 0;
   border: 1px solid rgba(23, 23, 23, 0.12);
   border-radius: var(--radius);
   background:
     repeating-linear-gradient(135deg, rgba(23, 23, 23, 0.12) 0 1px, transparent 1px 13px),
     linear-gradient(135deg, var(--lavender), var(--cyan), var(--yellow));
+}
+
+.texture-card::before,
+.texture-card::after {
+  position: absolute;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: var(--radius);
+  content: "";
+}
+
+.texture-card::before {
+  inset: 18px 20px auto;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.texture-card::after {
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  height: 76px;
+  background: rgba(23, 23, 23, 0.88);
 }
 
 .texture-card span {
@@ -940,25 +999,33 @@ h3 {
 }
 
 .texture-card span:nth-child(1) {
-  top: 22px;
-  left: 24px;
-  width: 80px;
-  height: 86px;
+  top: 88px;
+  left: 22px;
+  width: 92px;
+  height: 108px;
 }
 
 .texture-card span:nth-child(2) {
-  right: 24px;
-  bottom: 20px;
-  width: 110px;
-  height: 64px;
+  right: 18px;
+  top: 142px;
+  width: 118px;
+  height: 84px;
 }
 
 .texture-card span:nth-child(3) {
-  top: 62px;
-  right: 62px;
-  width: 44px;
-  height: 44px;
+  left: 48px;
+  bottom: 120px;
+  width: 58px;
+  height: 58px;
   background: var(--ink);
+}
+
+.texture-card span:nth-child(4) {
+  right: 48px;
+  bottom: 124px;
+  width: 42px;
+  height: 42px;
+  background: var(--lime);
 }
 
 .cards-section,
@@ -970,6 +1037,7 @@ h3 {
 .feature-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  grid-template-rows: repeat(2, minmax(300px, auto));
   gap: 14px;
   max-width: 1240px;
   margin: 0 auto;
@@ -1041,6 +1109,29 @@ h3 {
   color: #fff;
 }
 
+.feature-accent {
+  background:
+    linear-gradient(145deg, rgba(201, 255, 56, 0.82), rgba(85, 217, 255, 0.3)),
+    #fff;
+}
+
+.feature-accent::before {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
+  z-index: 0;
+  width: 132px;
+  height: 92px;
+  border: 1px solid rgba(23, 23, 23, 0.14);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, var(--pink) 0 30%, var(--yellow) 30% 58%, var(--cyan) 58%),
+    #fff;
+  box-shadow: 7px 7px 0 rgba(23, 23, 23, 0.08);
+  content: "";
+  transform: rotate(-8deg);
+}
+
 .feature-dark p,
 .feature-dark .feature-index {
   color: rgba(255, 255, 255, 0.72);
@@ -1109,11 +1200,13 @@ h3 {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  width: 160px;
-  height: 110px;
+  z-index: 0;
+  width: 142px;
+  height: 96px;
   border: 1px solid rgba(23, 23, 23, 0.12);
   border-radius: var(--radius);
   content: "";
+  opacity: 0.92;
 }
 
 .flow-card:nth-child(1)::before {
@@ -1133,6 +1226,8 @@ h3 {
 }
 
 .flow-card span {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   min-height: 34px;
   align-items: center;
@@ -1145,12 +1240,16 @@ h3 {
 }
 
 .flow-card h3 {
-  max-width: 280px;
+  position: relative;
+  z-index: 1;
+  max-width: 235px;
   font-size: 34px;
 }
 
 .flow-card p {
-  max-width: 320px;
+  position: relative;
+  z-index: 1;
+  max-width: 250px;
   color: rgba(23, 23, 23, 0.68);
 }
 
@@ -1236,9 +1335,36 @@ h3 {
   margin: 0 auto;
 }
 
+.template-heading {
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.6fr);
+  grid-template-areas:
+    "eyebrow intro"
+    "title intro";
+  align-items: end;
+  max-width: 1320px;
+  margin: 0 auto 44px;
+}
+
+.template-heading .eyebrow {
+  grid-area: eyebrow;
+}
+
+.template-heading h2 {
+  grid-area: title;
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+.template-heading p:not(.eyebrow) {
+  grid-area: intro;
+  max-width: 420px;
+  margin: 0 0 8px auto;
+  color: rgba(23, 23, 23, 0.66);
+}
+
 .template-card {
   position: relative;
-  min-height: 430px;
+  min-height: 420px;
   padding: 16px;
   border: 1px solid rgba(23, 23, 23, 0.14);
   border-radius: var(--radius);
@@ -1266,41 +1392,49 @@ h3 {
 }
 
 .template-card h3 {
-  position: relative;
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  left: 16px;
   z-index: 1;
-  margin-top: 220px;
+  margin: 0;
   font-size: 25px;
+  line-height: 1.02;
 }
 
-.template-card div {
+.template-art {
   position: absolute;
-  inset: 64px 16px auto;
-  height: 198px;
+  inset: 60px 16px 122px;
   border: 1px solid rgba(23, 23, 23, 0.13);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.48);
+  background-image: url("./assets/template-card-sheet.jpg");
+  background-repeat: no-repeat;
+  background-size: 300% 200%;
+  box-shadow: 7px 7px 0 rgba(23, 23, 23, 0.1);
 }
 
-.template-card div::before,
-.template-card div::after {
-  position: absolute;
-  border: 1px solid rgba(23, 23, 23, 0.1);
-  border-radius: var(--radius);
-  content: "";
+.art-creator {
+  background-position: 0% 0%;
 }
 
-.template-card div::before {
-  inset: 18px 18px auto;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.65);
+.art-event {
+  background-position: 50% 0%;
 }
 
-.template-card div::after {
-  right: 18px;
-  bottom: 18px;
-  left: 18px;
-  height: 40px;
-  background: rgba(23, 23, 23, 0.8);
+.art-product {
+  background-position: 100% 0%;
+}
+
+.art-menu {
+  background-position: 0% 100%;
+}
+
+.art-card {
+  background-position: 50% 100%;
+}
+
+.art-waitlist {
+  background-position: 100% 100%;
 }
 
 .template-a {
@@ -1637,6 +1771,29 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .toolkit-heading,
+  .template-heading {
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "copy";
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .template-heading {
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "intro";
+  }
+
+  .toolkit-heading p:not(.eyebrow),
+  .template-heading p:not(.eyebrow) {
+    max-width: 100%;
+    margin: 0;
+  }
+
   .feature-large {
     min-height: 500px;
   }
@@ -1807,6 +1964,14 @@ h3 {
   .compare-card,
   .template-card {
     min-height: 310px;
+  }
+
+  .template-card {
+    min-height: 390px;
+  }
+
+  .template-art {
+    inset: 60px 16px 96px;
   }
 
   .feature-card h3,

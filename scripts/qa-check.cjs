@@ -4,6 +4,7 @@ const { chromium } = require("playwright");
 
 const root = path.resolve(__dirname, "..");
 const outDir = path.join(root, "qa-screenshots");
+const qaUrl = process.env.QA_URL || "http://127.0.0.1:4173/";
 
 const viewports = [
   { name: "desktop", width: 1440, height: 900 },
@@ -29,7 +30,7 @@ const viewports = [
       }
     });
 
-    await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+    await page.goto(qaUrl, { waitUntil: "networkidle" });
     await page.screenshot({
       path: path.join(outDir, `${viewport.name}.png`),
       fullPage: true
