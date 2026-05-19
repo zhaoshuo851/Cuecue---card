@@ -79,23 +79,44 @@ stackButtons.forEach((button) => {
 if (!prefersReducedMotion) {
   const heroStage = document.querySelector(".hero-stage");
   const layers = document.querySelectorAll(".layer");
+  let heroFrame = 0;
+  let heroPointer = null;
 
-  heroStage?.addEventListener("pointermove", (event) => {
+  const updateHeroLayers = () => {
+    if (!heroPointer || !heroStage) {
+      heroFrame = 0;
+      return;
+    }
+
     const rect = heroStage.getBoundingClientRect();
-    const x = event.clientX - rect.left - rect.width / 2;
-    const y = event.clientY - rect.top - rect.height / 2;
+    const x = heroPointer.x - rect.left - rect.width / 2;
+    const y = heroPointer.y - rect.top - rect.height / 2;
 
     layers.forEach((layer) => {
       const depth = Number(layer.dataset.depth || 0.04);
       const moveX = x * depth;
       const moveY = y * depth;
-      layer.style.setProperty("--move-x", `${moveX}px`);
-      layer.style.setProperty("--move-y", `${moveY}px`);
       layer.style.translate = `${moveX}px ${moveY}px`;
     });
+
+    heroFrame = 0;
+  };
+
+  heroStage?.addEventListener("pointermove", (event) => {
+    heroPointer = { x: event.clientX, y: event.clientY };
+
+    if (!heroFrame) {
+      heroFrame = requestAnimationFrame(updateHeroLayers);
+    }
   });
 
   heroStage?.addEventListener("pointerleave", () => {
+    if (heroFrame) {
+      cancelAnimationFrame(heroFrame);
+      heroFrame = 0;
+    }
+
+    heroPointer = null;
     layers.forEach((layer) => {
       layer.style.translate = "0 0";
     });
@@ -104,14 +125,29 @@ if (!prefersReducedMotion) {
   const magneticItems = document.querySelectorAll(".magnetic");
 
   magneticItems.forEach((item) => {
+    let magneticFrame = 0;
+    let nextTransform = "";
+
     item.addEventListener("pointermove", (event) => {
       const rect = item.getBoundingClientRect();
       const x = (event.clientX - rect.left - rect.width / 2) * 0.12;
       const y = (event.clientY - rect.top - rect.height / 2) * 0.12;
-      item.style.transform = `translate(${x}px, ${y}px)`;
+      nextTransform = `translate(${x}px, ${y}px)`;
+
+      if (!magneticFrame) {
+        magneticFrame = requestAnimationFrame(() => {
+          item.style.transform = nextTransform;
+          magneticFrame = 0;
+        });
+      }
     });
 
     item.addEventListener("pointerleave", () => {
+      if (magneticFrame) {
+        cancelAnimationFrame(magneticFrame);
+        magneticFrame = 0;
+      }
+
       item.style.transform = "";
     });
   });
